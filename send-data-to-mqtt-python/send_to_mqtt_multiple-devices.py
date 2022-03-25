@@ -209,7 +209,8 @@ def generate_data_array(hardware_id, dateinstance):
 
     #Generating DATALOG_ERROR
     if payload['d'][0]['value'] == 'running':
-        payload['d'][13]['value'] = DATALOG_ERROR
+        DATALOG_ERROR = random.randint(1, 9)
+    payload['d'][13]['value'] = DATALOG_ERROR
 
     #Generating oid
     if payload['d'][0]['value'] == 'running':
