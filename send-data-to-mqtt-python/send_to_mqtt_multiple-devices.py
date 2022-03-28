@@ -117,7 +117,7 @@ def generate_data_array(hardware_id, dateinstance):
 
     
     #Initialization
-    mstatus                     =     ['running','stop']
+    mstatus                     =     ['1','0']
     current                     =     0
     voltage                     =     0
     gasfr                       =     0
@@ -157,71 +157,71 @@ def generate_data_array(hardware_id, dateinstance):
     payload['d'][1]['value'] = dateinstance.strftime('%Y-%m-%d %H:%M:%S')
 
     #Generating current
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         current = random.randint(80, 90)   
     payload['d'][2]['value'] = current
 
     #Generating voltage
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         voltage = random.randint(18, 24)   
     payload['d'][3]['value'] = voltage
 
     #Generating gasfr
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         gasfr = random.randint(18, 22)   
     payload['d'][4]['value'] = gasfr
 
     #Generating ambtemp
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         ambtemp = random.randint(27, 30)   
     payload['d'][5]['value'] = ambtemp   
 
     #Generating humidity
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         humidity = random.randint(40, 90)   
     payload['d'][6]['value'] = humidity
 
     #Generating jointno
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         jointno = random.randint(1, 100)   
     payload['d'][7]['value'] = jointno
 
     #Generating chuckspeed
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         chuckspeed = random.randint(4, 10)   
     payload['d'][8]['value'] = chuckspeed
 
     #Generating plc
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][9]['value'] = get_random_words(plc)
 
     #Generating SYS_DATACARD_CAPACITY
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][10]['value'] = SYS_DATACARD_CAPACITY
 
     #Generating SYS_DATACARD_FREE_SPACE
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][11]['value'] = SYS_DATACARD_FREE_SPACE
 
     #Generating DATALOG_ENABLE
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][12]['value'] = get_random_words(DATALOG_ENABLE)
 
     #Generating DATALOG_ERROR
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         DATALOG_ERROR = random.randint(1, 9)
     payload['d'][13]['value'] = DATALOG_ERROR
 
     #Generating oid
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][14]['value'] = oid
 
     #Generating dis
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][15]['value'] = dis
 
     #Generating network
-    if payload['d'][0]['value'] == 'running':
+    if payload['d'][0]['value'] == '1':
         payload['d'][16]['value'] = network
 
     return payload
