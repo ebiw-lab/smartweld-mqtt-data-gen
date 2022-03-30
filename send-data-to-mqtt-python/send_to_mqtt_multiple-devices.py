@@ -118,21 +118,21 @@ def generate_data_array(hardware_id, dateinstance):
     
     #Initialization
     mstatus                     =     ['1','0']
-    current                     =     0
-    voltage                     =     0
-    gasfr                       =     0
-    ambtemp                     =     0
-    humidity                    =     0
-    jointno                     =     None
-    chuckspeed                  =     0
+    current                     =     ''
+    voltage                     =     ''
+    gasfr                       =     ''
+    ambtemp                     =     ''
+    humidity                    =     ''
+    jointno                     =     ''
+    chuckspeed                  =     ''
     plc                         =     ['1','0']
-    SYS_DATACARD_CAPACITY       =     7948206080.00
-    SYS_DATACARD_FREE_SPACE     =     7673053184.00
+    SYS_DATACARD_CAPACITY       =     '7948206080.00'
+    SYS_DATACARD_FREE_SPACE     =     '7673053184.00'
     DATALOG_ENABLE              =     ['1','0']
     DATALOG_ERROR               =     '6'
-    oid                         =     None
-    dis                         =     None
-    network                     =     None
+    oid                         =     ''
+    dis                         =     ''
+    network                     =     ''
 
 
 
@@ -159,37 +159,37 @@ def generate_data_array(hardware_id, dateinstance):
     #Generating current
     if payload['d'][0]['value'] == '1':
         current = random.randint(80, 90)   
-    payload['d'][2]['value'] = current
+    payload['d'][2]['value'] = str(current)
 
     #Generating voltage
     if payload['d'][0]['value'] == '1':
         voltage = random.randint(18, 24)   
-    payload['d'][3]['value'] = voltage
+    payload['d'][3]['value'] = str(voltage)
 
     #Generating gasfr
     if payload['d'][0]['value'] == '1':
         gasfr = random.randint(18, 22)   
-    payload['d'][4]['value'] = gasfr
+    payload['d'][4]['value'] = str(gasfr)
 
     #Generating ambtemp
     if payload['d'][0]['value'] == '1':
         ambtemp = random.randint(27, 30)   
-    payload['d'][5]['value'] = ambtemp   
+    payload['d'][5]['value'] = str(ambtemp)  
 
     #Generating humidity
     if payload['d'][0]['value'] == '1':
         humidity = random.randint(40, 90)   
-    payload['d'][6]['value'] = humidity
+    payload['d'][6]['value'] = str(humidity)
 
     #Generating jointno
     if payload['d'][0]['value'] == '1':
         jointno = random.randint(1, 100)   
-    payload['d'][7]['value'] = jointno
+    payload['d'][7]['value'] = str(jointno)
 
     #Generating chuckspeed
     if payload['d'][0]['value'] == '1':
         chuckspeed = random.randint(4, 10)   
-    payload['d'][8]['value'] = chuckspeed
+    payload['d'][8]['value'] = str(chuckspeed)
 
     #Generating plc
     if payload['d'][0]['value'] == '1':
@@ -197,32 +197,32 @@ def generate_data_array(hardware_id, dateinstance):
 
     #Generating SYS_DATACARD_CAPACITY
     if payload['d'][0]['value'] == '1':
-        payload['d'][10]['value'] = SYS_DATACARD_CAPACITY
+        payload['d'][10]['value'] = str(SYS_DATACARD_CAPACITY)
 
     #Generating SYS_DATACARD_FREE_SPACE
     if payload['d'][0]['value'] == '1':
-        payload['d'][11]['value'] = SYS_DATACARD_FREE_SPACE
+        payload['d'][11]['value'] = str(SYS_DATACARD_FREE_SPACE)
 
     #Generating DATALOG_ENABLE
     if payload['d'][0]['value'] == '1':
-        payload['d'][12]['value'] = get_random_words(DATALOG_ENABLE)
+        payload['d'][12]['value'] = str(get_random_words(DATALOG_ENABLE))
 
     #Generating DATALOG_ERROR
     if payload['d'][0]['value'] == '1':
         DATALOG_ERROR = random.randint(1, 9)
-    payload['d'][13]['value'] = DATALOG_ERROR
+    payload['d'][13]['value'] = str(DATALOG_ERROR)
 
     #Generating oid
     if payload['d'][0]['value'] == '1':
-        payload['d'][14]['value'] = oid
+        payload['d'][14]['value'] = str(oid)
 
     #Generating dis
     if payload['d'][0]['value'] == '1':
-        payload['d'][15]['value'] = dis
+        payload['d'][15]['value'] = str(dis)
 
     #Generating network
     if payload['d'][0]['value'] == '1':
-        payload['d'][16]['value'] = network
+        payload['d'][16]['value'] = str(network)
 
     return payload
 
@@ -286,9 +286,9 @@ if __name__ == "__main__":
             #print(payload)
             #print(type(str(payload).encode('utf-8')))
             data = str(payload).encode('utf-8')
-            #print(data)
+            print(data)
             
-            client.publish("data/ecu1051/"+hardware_id, data)
+            #client.publish("data/ecu1051/"+hardware_id, data)
 
         #print("---Execution time: %s seconds ---" % (time.time() - exec_time))
             
