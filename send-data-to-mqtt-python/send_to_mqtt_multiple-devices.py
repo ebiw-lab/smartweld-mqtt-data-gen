@@ -286,9 +286,9 @@ if __name__ == "__main__":
             #print(payload)
             #print(type(str(payload).encode('utf-8')))
             data = str(payload).encode('utf-8')
-            print(data)
+            #print(data)
             
-            #client.publish("data/ecu1051/"+hardware_id, data)
+            client.publish("data/ecu1051/"+hardware_id, data)
 
         #print("---Execution time: %s seconds ---" % (time.time() - exec_time))
             
